@@ -7,7 +7,7 @@ import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
 
 // CREATE
-export async function createUser(user: CreateUserParams) {
+export async function createUser( user: CreateUserParams) {
   try {
     await connectToDatabase();
 
@@ -87,6 +87,7 @@ export async function updateCredits(userId: string, creditFee: number) {
     if(!updatedUserCredits) throw new Error("User credits update failed");
 
     return JSON.parse(JSON.stringify(updatedUserCredits));
+    
   } catch (error) {
     handleError(error);
   }
